@@ -9,6 +9,9 @@ def index(request):
     libros_fisicos = LibroFisico.objects.all()
     libros_digitales = LibroDigital.objects.all()
 
+    libros_fisicos_info = [libro.mostrar_info() for libro in libros_fisicos]
+    libros_digitales_info = [libro.mostrar_info() for libro in libros_digitales]
+
     form = None
     template = "base.html"
 
@@ -52,6 +55,7 @@ def index(request):
             "form": form,
         },
     )
+
 
 
 def guardar_libro_fisico(request):

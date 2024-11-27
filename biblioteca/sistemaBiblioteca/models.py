@@ -39,7 +39,7 @@ class Libro(models.Model):
         self._anio_publicacion = value
 
     def mostrar_info(self):
-        return f"Título: {self.get_titulo()}, Autor: {self.get_autor()}, Año de publicación: {self.get_fecha()}"
+        return f"Título: {self._titulo}, Autor: {self._autor}, Año de publicación: {self._anio_publicacion}"
 
 # Modelo para libros físicos
 class LibroFisico(Libro):
@@ -55,7 +55,7 @@ class LibroFisico(Libro):
         self._num_paginas = paginas
 
     def mostrar_info(self):
-        return f"{super().mostrar_info()}, Número de páginas: {self.get_paginas()}"
+        return f"{super().mostrar_info()}, Número de páginas: {self._num_paginas}"
 
 # Modelo para libros digitales 
 class LibroDigital(Libro):
@@ -81,4 +81,4 @@ class LibroDigital(Libro):
         self._tamanio_mb = value
 
     def mostrar_info(self):
-        return f"{super().mostrar_info()}, Tamaño: {self.get_size()} MB, Formato: {self.get_formato()}"
+        return f"{super().mostrar_info()}, Tamaño: {self._tamanio_mb} MB, Formato: {self._formato}"
